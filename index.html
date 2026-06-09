@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="./safespace_bestanden/favicon.ico">
+    <title>Safespace Amersfoort</title>
+
+    <style>
+        /* CSS Variables for Vibe Management */
+        :root {
+            --accent-yellow: #fdf5a9; /* Soft yellow from the logo */
+            --glass-bg: rgba(15, 20, 45, 0.65); /* Deep space blue tint */
+            --text-light: #ffffff;
+            --text-dim: #e0e0e0;
+        }
+
+        /* Mobile-First Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            color: var(--text-light);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0a0a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* The Mobile-Safe Fixed Background Fix */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("./safespace_bestanden/image.png");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            pointer-events: none; /* Ensures the background doesn't block taps */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Glassmorphism Card Style */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        /* Header & Typography */
+        header .logo {
+            width: 90%;
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(253, 245, 169, 0.2));
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-dim);
+        }
+
+        /* Mobile Feature Layout (Stacked) */
+        .feature-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-block img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-block p {
+            font-size: 1.05rem;
+            text-align: left;
+            margin: 0;
+        }
+
+        /* Mobile-Optimized Button */
+        .contact-btn {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1.5rem;
+            padding: 1.2rem 1rem;
+            background-color: var(--accent-yellow);
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(253, 245, 169, 0.3);
+        }
+
+        .contact-btn:hover {
+            background-color: #fffde0;
+            transform: translateY(-2px);
+        }
+
+        .standalone-img {
+            display: block;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tablet & Desktop Scaling */
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+                gap: 2.5rem;
+            }
+
+            .card {
+                padding: 3rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            /* Switch to side-by-side for larger screens */
+            .feature-block {
+                flex-direction: row;
+                align-items: center;
+                padding: 2rem;
+                gap: 2.5rem;
+            }
+
+            .feature-block:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .feature-block img {
+                width: 45%;
+            }
+
+            .feature-block p {
+                flex: 1;
+                font-size: 1.15rem;
+            }
+
+            .contact-btn {
+                display: inline-block;
+                width: auto;
+                padding: 1rem 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        
+        <header class="card">
+            <img class="logo" src="./safespace_bestanden/safespace.png" alt="Safe Space Amersfoort Logo">
+            <h3>Een gezellige ontmoetingsplek voor queer en neurodiverse jongeren en jongvolwassenen in Amersfoort.</h3>
+        </header>
+
+        <main style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="feature-block">
+                <img src="./safespace_bestanden/foto4.png" alt="Sfeerimpressie activiteiten">
+                <p>
+                    Elk weekend organiseren wij een gezellige middag/avond voor queer 
+                    en neurodiverse jongeren/jong volwassenen in Amersfoort. 
+                    We doen samen spelletjes, kletsen, kijken films en eten samen. 
+                    Er is ook ruimte om zelf een activiteit te organiseren.
+                </p>
+            </div>
+
+            <div class="feature-block">
+                <img src="./safespace_bestanden/foto5.png" alt="Sfeerimpressie locatie">
+                <p>
+                    Met subsidie van de gemeente Amersfoort is het voor ons mogelijk 
+                    om een eigen ruimte te huren zonder daar entree voor te vragen. 
+                    Het prettige van een eigen ruimte is dat je bij ons veilig kan 
+                    experimenteren met jouw identiteit.
+                </p>
+            </div>
+            
+            <img class="standalone-img" src="./safespace_bestanden/foto1.png" alt="Sfeerimpressie">
+        </main>
+
+        <footer class="card">
+            <h2 style="color: var(--accent-yellow); margin-top: 0;">Contact</h2>
+            <p>Heb je vragen of wil je een keertje langs komen?</p>
+            <p>Neem dan contact met ons op via onderstaande knop:</p>
+            <a href="mailto:safespace.amersfoort@protonmail.com" class="contact-btn">
+                Mail Ons
+            </a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
